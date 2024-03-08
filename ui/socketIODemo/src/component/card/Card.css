@@ -1,0 +1,46 @@
+.card {
+    margin-bottom: 20px;
+}
+
+.infor {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.userImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.postImg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.interaction {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cardIcon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-left: 10px;
+
+}
+
+.inforIcon {
+    position: absolute;
+    right: 0;
+
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.IO Demo</title>
+  </head>
+  <body>
+    <h1>Socket.IO Demo</h1>
+    <ul id="messages"></ul>
+    <form id="form">
+      <input id="chat-mess" autocomplete="off" /><button
+        type="submit"
+        id="send-chat"
+      >
+        Send
+      </button>
+    </form>
+  </body>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const form = document.getElementById('form');
+    const chatMes = document.getElementById('chat-mess');
+    const item = document.getElementById('messages');
+
+    form.addEventListener('submit', (e) => {
+      const chatData = chatMes.value
+      e.preventDefault();
+      socket.emit('chat-message', { message: chatData });
+      chatData = ''
+    });
+
+    socket.on('user-chat',(message)=>{
+     const li = document.createElement('li');
+     li.textContent = message.message;
+     item.appendChild(li);
+    })
+  </script>
+</html>
